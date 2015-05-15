@@ -1,4 +1,4 @@
-all: build/glib_hash_table build/stl_unordered_map build/boost_unordered_map build/google_sparse_hash_map build/google_dense_hash_map build/qt_qhash build/python_dict build/ruby_hash
+all: build/glib_hash_table build/stl_unordered_map build/boost_unordered_map build/google_sparse_hash_map build/google_dense_hash_map build/qt_qhash build/python_dict build/ruby_hash build/collectc_hashtable
 
 build/glib_hash_table: src/glib_hash_table.c Makefile src/template.c
 	gcc -ggdb -O2 -lm `pkg-config --cflags --libs glib-2.0` src/glib_hash_table.c -o build/glib_hash_table
@@ -23,3 +23,6 @@ build/python_dict: src/python_dict.c Makefile src/template.c
 
 build/ruby_hash: src/ruby_hash.c Makefile src/template.c
 	gcc -O2 -lm -I/usr/include/ruby-2.2.0 -I /usr/include/ruby-2.2.0/x86_64-linux -lruby src/ruby_hash.c -o build/ruby_hash
+
+build/collectc_hashtable: src/collectc_hashtable.c Makefile src/template.c
+	gcc -O2 -lm -I/usr/local/include/collectc/ -lcollectc src/collectc_hashtable.c -o build/collectc_hashtable

@@ -9,11 +9,12 @@ programs = [
     'qt_qhash',
     'python_dict',
     'ruby_hash',
+    'collectc_hashtable'
 ]
 
-minkeys  =  2*1000*1000
-maxkeys  = 40*1000*1000
-interval =  2*1000*1000
+minkeys  =  100*1000
+maxkeys  =  1*1000*1000
+interval =  1*100*1000
 best_out_of = 2
 
 # for the final run, use this:
