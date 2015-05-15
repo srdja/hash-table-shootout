@@ -1,9 +1,10 @@
 #include <hashtable.h>
+#include <fasthash.h>
 
 #define SETUP HashTable *str_hash = hashtable_new(); \
               HashTableConf c;                  \
               hashtable_conf_init(&c); \
-              c.hash = POINTER_HASH; \
+              c.hash = fasthash64_ptr; \
               c.key_compare = CMP_POINTER; \
               c.key_length = KEY_LENGTH_POINTER; \
               HashTable *hash = hashtable_new_conf(&c);
